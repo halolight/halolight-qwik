@@ -1,0 +1,35 @@
+{
+  "build": {
+    "command": "pnpm run build",
+    "output_dir": "dist",
+    "environment": {
+      "NODE_VERSION": "22",
+      "PACKAGE_MANAGER": "pnpm"
+    }
+  },
+  "deployment": {
+    "production": {
+      "branch": "main",
+      "environment_variables": {
+        "NODE_ENV": "production",
+        "VITE_API_URL": "/api",
+        "VITE_MOCK": "true",
+        "VITE_APP_TITLE": "Admin Pro"
+      }
+    },
+    "preview": {
+      "branch": "develop",
+      "environment_variables": {
+        "NODE_ENV": "development",
+        "VITE_API_URL": "/api",
+        "VITE_MOCK": "true",
+        "VITE_APP_TITLE": "Admin Pro Dev"
+      }
+    }
+  },
+  "functions": {
+    "directory": "dist",
+    "compatibility_date": "2024-01-01",
+    "compatibility_flags": ["nodejs_compat"]
+  }
+}
