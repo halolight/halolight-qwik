@@ -5,6 +5,11 @@ import type { DashboardWidget, DashboardLayout } from "~/types/dashboard";
 import { StatsWidget } from "../widgets/StatsWidget";
 import { ChartWidget } from "../widgets/ChartWidget";
 import { EChartsWidget } from "../widgets/EChartsWidget";
+import { TasksWidget } from "../widgets/TasksWidget";
+import { RecentUsersWidget } from "../widgets/RecentUsersWidget";
+import { NotificationsWidget } from "../widgets/NotificationsWidget";
+import { CalendarWidget } from "../widgets/CalendarWidget";
+import { QuickActionsWidget } from "../widgets/QuickActionsWidget";
 
 interface GridItemProps {
   widget: DashboardWidget;
@@ -80,12 +85,21 @@ export const GridItem = component$<GridItemProps>(
             />
           );
 
-        // TODO: 实现其他组件类型
         case "recent-users":
+          return <RecentUsersWidget title={widget.title} />;
+
         case "notifications":
+          return <NotificationsWidget title={widget.title} />;
+
         case "tasks":
+          return <TasksWidget title={widget.title} />;
+
         case "calendar":
+          return <CalendarWidget title={widget.title} />;
+
         case "quick-actions":
+          return <QuickActionsWidget title={widget.title} />;
+
         default:
           return (
             <div class="h-full flex items-center justify-center text-gray-500">

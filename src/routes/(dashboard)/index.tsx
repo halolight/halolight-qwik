@@ -4,6 +4,11 @@ import { ConfigurableDashboard } from "~/components/dashboard/ConfigurableDashbo
 import { StatsWidget } from "~/components/widgets/StatsWidget";
 import { ChartWidget } from "~/components/widgets/ChartWidget";
 import { EChartsWidget } from "~/components/widgets/EChartsWidget";
+import { TasksWidget } from "~/components/widgets/TasksWidget";
+import { RecentUsersWidget } from "~/components/widgets/RecentUsersWidget";
+import { NotificationsWidget } from "~/components/widgets/NotificationsWidget";
+import { CalendarWidget } from "~/components/widgets/CalendarWidget";
+import { QuickActionsWidget } from "~/components/widgets/QuickActionsWidget";
 import { createDashboardStore } from "~/stores/dashboard";
 import { notificationTemplates } from "~/stores/notifications";
 import type { DashboardWidget } from "~/types/dashboard";
@@ -71,12 +76,21 @@ const renderWidget = (widget: DashboardWidget) => {
         />
       );
 
-    // TODO: 实现其他组件类型
     case "recent-users":
+      return <RecentUsersWidget title={widget.title} />;
+
     case "notifications":
+      return <NotificationsWidget title={widget.title} />;
+
     case "tasks":
+      return <TasksWidget title={widget.title} />;
+
     case "calendar":
+      return <CalendarWidget title={widget.title} />;
+
     case "quick-actions":
+      return <QuickActionsWidget title={widget.title} />;
+
     default:
       return (
         <div class="h-full flex items-center justify-center text-gray-500">
